@@ -73,6 +73,31 @@ const data = [
     "wantToBuy": false,
     "wishList": false,
     "userComment": ""
+},
+{
+    "gameId": 128882,
+    "name": "The Resistance: Avalon",
+    "image": "https://cf.geekdo-images.com/original/img/kFDTpCfe476T1bzZUtNAbGyIjNg=/0x0/pic1398895.jpg",
+    "thumbnail": "https://cf.geekdo-images.com/thumb/img/rSivtcma94IGqMyHgzgfhjcyYDs=/fit-in/200x150/pic1398895.jpg",
+    "minPlayers": 5,
+    "maxPlayers": 10,
+    "playingTime": 30,
+    "isExpansion": false,
+    "yearPublished": 2012,
+    "bggRating": 0.0,
+    "averageRating": 7.6719,
+    "rank": 84,
+    "numPlays": 0,
+    "rating": -1.0,
+    "owned": false,
+    "preOrdered": false,
+    "forTrade": false,
+    "previousOwned": true,
+    "want": false,
+    "wantToPlay": false,
+    "wantToBuy": false,
+    "wishList": false,
+    "userComment": ""
   }
 ]
 export default data;
