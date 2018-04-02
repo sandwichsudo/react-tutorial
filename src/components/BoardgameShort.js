@@ -1,20 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const BoardgameShort = ({ name, image, minPlayers, maxPlayers }) =>
+const BoardgameLong = ({ name, thumbnail, minPlayers, maxPlayers, gameId }) =>
      (
          <li>
-           <h2>{name}</h2>
-           <h3>{minPlayers} - {maxPlayers} players</h3>
-           <img alt={name} src={image} height="200"/>
+            <Link to={`/details/${gameId}`} className="BoardgamesShort">
+               <h2 className="BoardgamesShort__title">{name}</h2>
+               <img className="BoardgamesShort__img" alt={name} src={thumbnail} />
+               <h3 className="BoardgamesShort__desc">{minPlayers} - {maxPlayers} players</h3>
+           </Link>
          </li>
     )
 
-BoardgameShort.propType = {
+BoardgameLong.propType = {
     name: PropTypes.string,
     image: PropTypes.string,
     minPlayers: PropTypes.string,
     maxPlayers: PropTypes.string,
+    gameId: PropTypes.string,
 }
 
-export default BoardgameShort;
+export default BoardgameLong;

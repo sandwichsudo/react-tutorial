@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import BoardgameShort from './components/BoardgameShort';
+import { Route, Switch } from 'react-router-dom';
+import BoardgamesList from './components/BoardgamesList';
+import BoardgamesLong from './components/BoardgamesLong';
 import logo from './logo.svg';
 import './App.css';
 import data from './Data';
+
+function getProductProps(props, productData) {
+    return productData.filter((game) => game.gameId.toString() === props.match.params.gameId)[0];
+}
 
 class App extends Component {
   render() {
@@ -12,25 +18,22 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <ul>
-        {this.props.data.map((game) =>
-            <BoardgameShort
-                name={game.name}
-                alt={game.name}
-                image={game.image}
-                maxPlayers={game.maxPlayers}
-                minPlayers={game.minPlayers}
-                key={game.gameId}
-            />
-        )}
-        </ul>
+        <Switch>
+          <Route
+            exact
+            path="/" 
+            render={ () => <BoardgamesList data={data} /> }
+          />
+        
+          <Route
+            exact
+            path="/details/:gameId"
+            render={ (props) => <BoardgamesLong {...getProductProps(props, data) } /> }
+          />
+        </Switch>
       </div>
     );
   }
-}
-
-App.defaultProps = {
-    data: data,
 }
 
 export default App;
